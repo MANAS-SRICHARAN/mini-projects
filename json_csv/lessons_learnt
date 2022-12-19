@@ -1,0 +1,6 @@
+74
+
+
+Python does not have blocks, as do some other languages (such as C/C++ or Java). Therefore, scoping unit in Python is a function.
+
+#except for funtions a varibale declared anytwhere can be used anywhere 
