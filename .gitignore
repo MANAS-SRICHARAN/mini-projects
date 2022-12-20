@@ -2,4 +2,6 @@
 /json_csv/output.csv
 /json_csv/requirements.txt
 /json_csv/lessons_learnt
-
+./insta_profile_pic/.ipynb_checkpoints/
+./insta_profile_pic/requirements.txt
+./insta_profile_pic/understanding lxml.ipynb
