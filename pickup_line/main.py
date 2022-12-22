@@ -6,7 +6,7 @@ import os
 def pickup_line(file_path):
 	line_numbers=[]
 	try:
-		with open(file_path) as file:
+		with open(file_path,"r") as file:
 			line_no=1
 			for line in file:
 				if line.strip():
@@ -16,10 +16,8 @@ def pickup_line(file_path):
 			number=int(random.choice(line_numbers))
 			file.seek(0,0) # set the pointer back to the file starting position
 			line_no =1
-			print("line number is **",number)
 			for line in file:
-				print(line,"**",line_no)
-				#if line_no == number: print(line_no,"----",file.readline())
+				if line_no == number: print(file.readline())
 				line_no+=1
 	except (FileNotFoundError,IOError) as e:
 		print(e)
