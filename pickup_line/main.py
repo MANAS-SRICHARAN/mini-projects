@@ -3,6 +3,12 @@ import random
 import os 
 
 
+"""
+the first line of file should not empty to get only non-empty lines of the file 
+
+
+"""
+
 def pickup_line(file_path):
 	line_numbers=[]
 	try:
