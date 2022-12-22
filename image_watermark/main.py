@@ -17,13 +17,12 @@ if __name__=="__main__":
 	watermark_path = input("enter the watermark path")
 	
 	os.chdir(folder_path)	
-	images = [element for element in os.listdir() if re.match(r'(.*\.png)|(.*\.jpg)',element)]
-	print(images)
-"""
-	final_img = blender(img_path,watermark_path)
-	#conver the final image to rgb as jpeg doesnt support rgba
-	final_img = final_img.convert("RGB")
-	print("saving the final image ")
-	final_img.save("output.jpg")
-	final_img.show()
-"""
+	images = [element for element in os.listdir() if re.match(r'(.+\.png)|(.+\.jpg)',element)]
+	for img_path in images:
+		final_img = blender(img_path,watermark_path)
+		#conver the final image to rgb as jpeg doesnt support rgba
+		final_img = final_img.convert("RGB")
+		print("saving the final image ")
+		final_img.save("final_{}.png".format(re.findall(r'.+\.',img_path)[0][:-1]))
+
+
