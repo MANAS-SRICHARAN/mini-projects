@@ -21,8 +21,14 @@ def splitter(source,count):
 	os.chdir(source)
 	elements = os.listdir()
 	chopped_elements =file_chopper(elements,count)
-	for i,j in enumerate(chopped_elements):
-		print(i,j)
+	for idx,folder in enumerate(chopped_elements):
+		folder_path = os.path.abspath(f"output_{idx}")
+		if not os.path.isdir(folder_path):
+			os.makedirs(folder_path)
+		for file in folder:
+			file_path = os.path.abspath(file)
+			shutil.copy2(file_path,folder_path)
+	
 
 
 if __name__=="__main__":
@@ -32,6 +38,7 @@ if __name__=="__main__":
 		source,count = sys.argv[1],int(sys.argv[2])
 		if os.path.isdir(source):
 			splitter(source,count)
+			print("files moved succesfully!!!")
 		else:
 			sys.exit(0)
-
+	
