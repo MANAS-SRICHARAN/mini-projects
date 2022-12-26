@@ -16,6 +16,6 @@ def sensor_formatter(sensor):
 percent,time =sensor_formatter(psutil.sensors_battery()) 
 print(f"% is {percent}")
 print(f"{time}") 
-if int(percent)>68:
+if int(percent)<20:
 	os.system("terminal-notifier -title 'battery down' -message 'charge up'")
 	
