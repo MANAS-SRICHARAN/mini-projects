@@ -1,5 +1,5 @@
 import psutil
-
+import os
 def secs_formatter(time):
 	min,sec = divmod(time,60)
 	hr,min = divmod(min,60)
@@ -16,3 +16,6 @@ def sensor_formatter(sensor):
 percent,time =sensor_formatter(psutil.sensors_battery()) 
 print(f"% is {percent}")
 print(f"{time}") 
+if int(percent)>68:
+	os.system("terminal-notifier -title 'battery down' -message 'charge up'")
+	
