@@ -24,12 +24,10 @@
 	</tr></thead>
 	{% for i in tasks %}
 	<tr>
+		{% if i.completion ==0 %}
 		<td> {{i.id}}</td>
 		<td> {{i.task}} </td>
 		<td>{{i.date}} </td> 
-		{% if i.completion ==1 %}
-		<td> Completed </td>
-		{% else %}
 		<td> <div class='form-check form-switch'>
 		<input class='form-check-input' type='checkbox' id="check" name="check{{i.id }}" value={{i.id}} />
 		<label class='form-check-label' for='check'> To smash</label></div>
